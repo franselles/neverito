@@ -3,6 +3,7 @@
   <br />
   <button @click="onBack">REGRESAR</button>
   <br />
+  <br />
   <input
     v-model="textSearch"
     type="text"
@@ -10,6 +11,7 @@
     autocomplete="off"
     @keyup="filterOptions"
   />
+  <br />
   <br />
   <div v-for="(item, index) in itemList" :key="index" :value="item">
     <input v-model="selected" :value="item" type="radio" />

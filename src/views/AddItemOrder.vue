@@ -3,6 +3,7 @@
   <br />
   <button @click="onBack">REGRESAR</button>
   <br />
+  <br />
   <div>
     <input
       v-model="textSearch"
@@ -12,11 +13,13 @@
       @keyup="filterOptions"
     />
     <br />
+    <br />
     <div v-for="(item, index) in options" :key="index" :value="item">
       <input v-model="selected" :value="item" type="radio" />
       <label>{{ item.name }}</label>
     </div>
   </div>
+  <br />
   <br />
   <div>
     <label for="model">Modelo</label>
