@@ -8,6 +8,9 @@ const config = require('./api/config');
 
 const app = express();
 
+const distDir = __dirname + '/dist/';
+app.use(express.static(distDir));
+
 app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
