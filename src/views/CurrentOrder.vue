@@ -1,10 +1,10 @@
 <template>
   <h2>HOLA {{ users.user.name }}</h2>
-
+  <br />
   <button @click="onExit">SALIR</button>
-
+  <br />
   <h4>LISTA DE COMPRA ACTUAL (current order)</h4>
-
+  <br />
   <ul>
     <li v-for="(order, index) in orders.orders" :key="index">
       <input v-model="order.buyed" type="checkbox" :disabled="active" />
@@ -12,7 +12,11 @@
       <button @click="edit(order._id)">EDITAR</button>
     </li>
   </ul>
+  <br />
+  <br />
   <button @click="onActive">{{ textButton }}</button>
+  <br />
+  <br />
   <button @click="onInsert">AÑADIR</button>
 </template>
 

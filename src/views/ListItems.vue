@@ -1,8 +1,8 @@
 <template>
   <h4>LISTA DE ITEMS DISPONIBLE PARA COMPRAR (list items)</h4>
-
+  <br />
   <button @click="onBack">REGRESAR</button>
-
+  <br />
   <input
     v-model="textSearch"
     type="text"
@@ -10,17 +10,21 @@
     autocomplete="off"
     @keyup="filterOptions"
   />
-
+  <br />
   <div v-for="(item, index) in itemList" :key="index" :value="item">
     <input v-model="selected" :value="item" type="radio" />
     <label>{{ item.name }}</label>
   </div>
-
+  <br />
+  <br />
   <button @click="onDelete">BORRAR</button>
-
+  <br />
+  <br />
   <label>NUEVO ITEM</label>
   <input v-model="newItemName" type="text" />
-
+  <br />
+  <br />
+  <br />
   <button @click="onAccept">AÑADIR</button>
 </template>
 
@@ -66,6 +70,7 @@ export default {
         await item.postItem(newItemName.value);
       }
       getItems();
+      newItemName.value = '';
     };
 
     const onDelete = async function () {

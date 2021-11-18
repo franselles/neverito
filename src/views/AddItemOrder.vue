@@ -1,8 +1,8 @@
 <template>
   <h4>AÑADIR ITEM A LA LISTA PARA COMPRAR (add item order)</h4>
-
+  <br />
   <button @click="onBack">REGRESAR</button>
-
+  <br />
   <div>
     <input
       v-model="textSearch"
@@ -11,24 +11,29 @@
       autocomplete="off"
       @keyup="filterOptions"
     />
-
+    <br />
     <div v-for="(item, index) in options" :key="index" :value="item">
       <input v-model="selected" :value="item" type="radio" />
       <label>{{ item.name }}</label>
     </div>
   </div>
-
+  <br />
   <div>
     <label for="model">Modelo</label>
     <input v-model="newItem.model" type="text" />
   </div>
+  <br />
   <div>
     <label for="quantiy">Cantidad</label>
     <input v-model="newItem.quantity" type="number" />
   </div>
+  <br />
+  <br />
   <div>
     <input type="button" value="ACEPTAR" @click="onSubmit" />
   </div>
+  <br />
+  <br />
   <div>
     <input type="button" value="NUEVO ITEM" @click="createItem" />
   </div>

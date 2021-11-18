@@ -1,8 +1,8 @@
 <template>
   <h4>EDITAR LA LISTA PARA COMPRAR (edit order)</h4>
-
+  <br />
   <button @click="onBack">REGRESAR</button>
-
+  <br />
   <form @submit.prevent="onSubmit">
     <div>
       <label for="model">Modelo</label>
@@ -12,8 +12,12 @@
       <label for="quantiy">Cantidad</label>
       <input v-model="currentOrder.quantity" type="number" />
     </div>
+    <br />
+    <br />
     <input type="submit" />
   </form>
+  <br />
+  <br />
   <button @click="onDelete">BORRAR</button>
 </template>
 
