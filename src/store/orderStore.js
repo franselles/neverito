@@ -1,0 +1,68 @@
+import { defineStore } from 'pinia';
+import axios from 'axios';
+import { urlServer } from './config';
+
+export const orderStore = defineStore('orderStore', {
+  state: () => {
+    return {
+      orders: [],
+      id: '',
+      currentOrder: {},
+    };
+  },
+  actions: {
+    async getOrderOpen() {
+      try {
+        const { data } = await axios({
+          url: urlServer + 'orders/open',
+          method: 'GET',
+        });
+
+        this.orders = data;
+
+        return;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async findOrder() {
+      this.currentOrder = await this.orders.find((item) => {
+        return item._id === this.id;
+      });
+    },
+    async putOrders() {
+      try {
+        await axios({
+          method: 'PUT',
+          url: urlServer + 'orders',
+          data: this.orders,
+        });
+        return;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async postOrder(order) {
+      try {
+        await axios({
+          method: 'POST',
+          url: urlServer + 'order',
+          data: order,
+        });
+        return;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async deleteOrder(order) {
+      try {
+        await axios({
+          method: 'DELETE',
+          url: urlServer + `order/${order._id}`,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+});
