@@ -3,6 +3,7 @@
   <br />
   <button @click="onBack">REGRESAR</button>
   <br />
+  <br />
   <form @submit.prevent="onSubmit">
     <div>
       <label for="model">Modelo</label>
@@ -14,7 +15,7 @@
     </div>
     <br />
     <br />
-    <input type="submit" />
+    <input type="submit" value="CAMBIAR" />
   </form>
   <br />
   <br />

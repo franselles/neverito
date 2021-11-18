@@ -17,11 +17,23 @@
     <div v-for="(item, index) in options" :key="index" :value="item">
       <input v-model="selected" :value="item" type="radio" />
       <label>{{ item.name }}</label>
+      <div v-if="selected._id == item._id">
+        <br />
+        <div>
+          <label for="model">Modelo</label>
+          <input v-model="newItem.model" type="text" />
+        </div>
+        <div>
+          <label for="quantiy">Cantidad</label>
+          <input v-model="newItem.quantity" type="number" />
+        </div>
+        <br />
+      </div>
     </div>
   </div>
   <br />
   <br />
-  <div>
+  <!--   <div>
     <label for="model">Modelo</label>
     <input v-model="newItem.model" type="text" />
   </div>
@@ -29,16 +41,16 @@
   <div>
     <label for="quantiy">Cantidad</label>
     <input v-model="newItem.quantity" type="number" />
+  </div> -->
+  <br />
+  <br />
+  <div>
+    <input type="button" value="AÑADIR A LA LISTA" @click="onSubmit" />
   </div>
   <br />
   <br />
   <div>
-    <input type="button" value="ACEPTAR" @click="onSubmit" />
-  </div>
-  <br />
-  <br />
-  <div>
-    <input type="button" value="NUEVO ITEM" @click="createItem" />
+    <input type="button" value="CREAR NUEVO ELEMENTO" @click="createItem" />
   </div>
 </template>
 
@@ -115,8 +127,8 @@ export default {
       textSearch,
       selected,
       newItem,
-      onSubmit,
       createItem,
+      onSubmit,
       onBack,
     };
   },

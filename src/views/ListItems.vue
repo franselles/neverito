@@ -22,12 +22,12 @@
   <button @click="onDelete">BORRAR</button>
   <br />
   <br />
-  <label>NUEVO ITEM</label>
+  <label>NUEVO ELEMENTO</label>
   <input v-model="newItemName" type="text" />
   <br />
   <br />
   <br />
-  <button @click="onAccept">AÑADIR</button>
+  <button @click="onAccept">AÑADIR ELEMENTO</button>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
-  <h2>HOLA {{ users.user.name }}</h2>
+  <h2>HOLA {{ users.user.name }} <button @click="onExit">SALIR</button></h2>
   <br />
-  <button @click="onExit">SALIR</button>
+
+  <button @click="onActive">{{ textButton }}</button>
+  <br />
   <br />
   <h4>LISTA DE COMPRA ACTUAL (current order)</h4>
   <br />
@@ -12,9 +14,6 @@
       <button @click="edit(order._id)">EDITAR</button>
     </li>
   </ul>
-  <br />
-  <br />
-  <button @click="onActive">{{ textButton }}</button>
   <br />
   <br />
   <button @click="onInsert">AÑADIR</button>
@@ -34,7 +33,7 @@ export default {
 
     const active = ref(true);
 
-    let textButton = ref('ACTIVAR');
+    let textButton = ref('DESBLOQUEA COMPRA');
 
     const carga = async function () {
       await orders.getOrderOpen();

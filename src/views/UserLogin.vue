@@ -1,6 +1,6 @@
 <template>
   <h3>BIENVENIDO A NEVERITO</h3>
-  0.1.5
+  0.1.6
   <form @submit.prevent="onSubmit">
     <div>
       <label for="pin">PIN</label>
