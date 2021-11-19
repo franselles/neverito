@@ -48,7 +48,8 @@ export default {
 
     const getItems = async function () {
       await item.getItems();
-      itemList.value = item.items;
+      itemFilter = item.items;
+      itemList.value = itemFilter;
     };
 
     getItems();

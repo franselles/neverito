@@ -2,7 +2,7 @@
 
 const Orders = require('../models/modelOrders');
 
-async function postOrder (req, res) {
+async function postOrder(req, res) {
   const order = req.body;
   const orders = new Orders(order);
 
@@ -14,7 +14,7 @@ async function postOrder (req, res) {
   }
 }
 
-async function getOrders (req, res) {
+async function getOrders(req, res) {
   try {
     const data = await Orders.find()
       .populate('familyId')
@@ -27,7 +27,7 @@ async function getOrders (req, res) {
   }
 }
 
-async function getOrdersOpen (req, res) {
+async function getOrdersOpen(req, res) {
   try {
     const data = await Orders.find({ buyed: false })
       .populate('familyId')
@@ -40,7 +40,7 @@ async function getOrdersOpen (req, res) {
   }
 }
 
-async function getOrder (req, res) {
+async function getOrder(req, res) {
   const orderId = req.params.id;
 
   try {
@@ -55,7 +55,7 @@ async function getOrder (req, res) {
   }
 }
 
-async function deleteOrder (req, res) {
+async function deleteOrder(req, res) {
   const orderId = req.params.id;
 
   try {
@@ -67,29 +67,11 @@ async function deleteOrder (req, res) {
   }
 }
 
-function putOrders (req, res) {
+function putOrders(req, res) {
   const dataReq = req.body;
 
   try {
-    /*
-    const dataUpdate = [];
-
-    dataReq.forEach(element => {
-      dataUpdate.push({
-        _id: element._id,
-        familyId: element.familyId._id,
-        itemId: element.itemId._id,
-        userId: element.userId._id,
-        model: element.model,
-        quantity: element.quantity,
-        buyed: element.buyed,
-        dateOrder: element.dateOrder,
-        datePurchase: element.datePurchase
-      });
-    });
-    */
-
-    dataReq.forEach(async element => {
+    dataReq.forEach(async (element) => {
       await Orders.findByIdAndUpdate(element._id, element, { new: true });
     });
 
@@ -102,4 +84,11 @@ function putOrders (req, res) {
   }
 }
 
-module.exports = { postOrder, getOrders, getOrdersOpen, getOrder, deleteOrder, putOrders };
+module.exports = {
+  postOrder,
+  getOrders,
+  getOrdersOpen,
+  getOrder,
+  deleteOrder,
+  putOrders,
+};

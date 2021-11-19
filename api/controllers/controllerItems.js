@@ -27,7 +27,7 @@ async function getItem(req, res) {
 
 async function getItems(req, res) {
   try {
-    const data = await Items.find().exec();
+    const data = await Items.find().sort({ name: 1 }).exec();
     res.status(200).send(data);
   } catch (error) {
     res.status(400).send({ data: 'ko' });
