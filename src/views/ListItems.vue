@@ -9,7 +9,6 @@
     type="text"
     placeholder="Busca elemento"
     autocomplete="off"
-    @keyup="filterOptions"
   />
   <br />
   <br />
@@ -31,7 +30,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { itemStore } from '../store/itemStore';
 
@@ -86,6 +85,10 @@ export default {
     const onBack = async function () {
       router.push({ name: 'AddItemOrder' });
     };
+
+    watch(textSearch, () => {
+      filterOptions();
+    });
 
     return {
       filterOptions,

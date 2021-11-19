@@ -10,7 +10,6 @@
       type="text"
       placeholder="Busca elemento"
       autocomplete="off"
-      @keyup="filterOptions"
     />
     <br />
     <br />
@@ -33,17 +32,6 @@
   </div>
   <br />
   <br />
-  <!--   <div>
-    <label for="model">Modelo</label>
-    <input v-model="newItem.model" type="text" />
-  </div>
-  <br />
-  <div>
-    <label for="quantiy">Cantidad</label>
-    <input v-model="newItem.quantity" type="number" />
-  </div> -->
-  <br />
-  <br />
   <div>
     <input type="button" value="AÑADIR A LA LISTA" @click="onSubmit" />
   </div>
@@ -55,7 +43,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { itemStore } from '../store/itemStore';
 import { userStore } from '../store/userStore';
@@ -120,6 +108,10 @@ export default {
     const onBack = async function () {
       router.push({ name: 'CurrentOrder' });
     };
+
+    watch(textSearch, () => {
+      filterOptions();
+    });
 
     return {
       options,
