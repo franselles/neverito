@@ -25,6 +25,20 @@ export const orderStore = defineStore('orderStore', {
         console.log(error);
       }
     },
+    async getOrderBuyed(datePurchased) {
+      try {
+        const { data } = await axios({
+          url: urlServer + `orders/buyed/${datePurchased}`,
+          method: 'GET',
+        });
+
+        this.orders = data;
+
+        return;
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async findOrder() {
       this.currentOrder = await this.orders.find((item) => {
         return item._id === this.id;

@@ -31,6 +31,12 @@ const routes = [
     component: () => import('../views/ListItems.vue'),
     meta: { requiresAuth: true },
   },
+  {
+    path: '/viewbuyed',
+    name: 'ViewBuyed',
+    component: () => import('../views/ViewBuyed.vue'),
+    meta: { requiresAuth: true },
+  },
 ];
 
 const history = createWebHistory();

@@ -3,6 +3,7 @@
   <br />
 
   <button @click="onActive">{{ textButton }}</button>
+  <button @click="onViewBuyed">COMPRAS REALIZADAS</button>
   <br />
   <br />
   <h4>LISTA DE COMPRA ACTUAL (current order)</h4>
@@ -11,7 +12,7 @@
     <li v-for="(order, index) in orders.orders" :key="index">
       <input v-model="order.buyed" type="checkbox" :disabled="active" />
       {{ order.itemId.name }} - {{ order.model }} - {{ order.quantity }}
-      <button @click="edit(order._id)">EDITAR</button>
+      <button @click="onEdit(order._id)">EDITAR</button>
     </li>
   </ul>
   <br />
@@ -55,7 +56,7 @@ export default {
       carga();
     };
 
-    const edit = function (id) {
+    const onEdit = function (id) {
       orders.id = id;
       router.push({ name: 'Editorder' });
     };
@@ -65,14 +66,19 @@ export default {
       router.push({ name: 'Login' });
     };
 
+    const onViewBuyed = function () {
+      router.push({ name: 'ViewBuyed' });
+    };
+
     return {
-      orders,
       onExit,
       onInsert,
       onActive,
+      onViewBuyed,
+      onEdit,
+      orders,
       users,
       active,
-      edit,
       textButton,
     };
   },

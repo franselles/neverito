@@ -40,6 +40,21 @@ async function getOrdersOpen(req, res) {
   }
 }
 
+async function getOrdersBuyed(req, res) {
+  const datePurchase = req.params.dp;
+
+  try {
+    const data = await Orders.find({ datePurchase: datePurchase, buyed: true })
+      .populate('familyId')
+      .populate('itemId')
+      .populate('userId')
+      .exec();
+    res.status(200).send(data);
+  } catch (error) {
+    res.status(400).send({ data: 'ko' });
+  }
+}
+
 async function getOrder(req, res) {
   const orderId = req.params.id;
 
@@ -67,11 +82,19 @@ async function deleteOrder(req, res) {
   }
 }
 
+function newToday() {
+  const todayDate = new Date();
+  return todayDate.toISOString().split('T')[0];
+}
+
 function putOrders(req, res) {
   const dataReq = req.body;
 
   try {
     dataReq.forEach(async (element) => {
+      if (element.buyed) {
+        element.datePurchase = newToday();
+      }
       await Orders.findByIdAndUpdate(element._id, element, { new: true });
     });
 
@@ -88,6 +111,7 @@ module.exports = {
   postOrder,
   getOrders,
   getOrdersOpen,
+  getOrdersBuyed,
   getOrder,
   deleteOrder,
   putOrders,
