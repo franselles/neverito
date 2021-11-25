@@ -2,7 +2,7 @@
   <div class="p-2">
     <h3>BIENVENIDO A NEVERITO</h3>
   </div>
-  <div class="p-2">0.1.10</div>
+  <div class="p-2">0.1.11</div>
   <div class="p-2">
     <form @submit.prevent="onSubmit">
       <div>
