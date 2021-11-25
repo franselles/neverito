@@ -26,6 +26,7 @@ api.get('/items', Items.getItems);
 api.post('/order', Orders.postOrder);
 api.get('/orders', Orders.getOrders);
 api.get('/orders/open', Orders.getOrdersOpen);
+api.get('/orders/date', Orders.getOrdersDate);
 api.get('/orders/buyed/:dp', Orders.getOrdersBuyed);
 api.get('/order/:id', Orders.getOrder);
 api.delete('/order/:id', Orders.deleteOrder);

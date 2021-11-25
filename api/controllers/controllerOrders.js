@@ -40,6 +40,21 @@ async function getOrdersOpen(req, res) {
   }
 }
 
+async function getOrdersDate(req, res) {
+  try {
+    const data = await Orders.aggregate([
+      { $match: { buyed: true } },
+      { $group: { _id: '$datePurchase' } },
+    ])
+      .sort({ _id: -1 })
+      .limit(10)
+      .exec();
+    res.status(200).send(data);
+  } catch (error) {
+    res.status(400).send({ data: 'ko' });
+  }
+}
+
 async function getOrdersBuyed(req, res) {
   const datePurchase = req.params.dp;
 
@@ -110,6 +125,7 @@ function putOrders(req, res) {
 module.exports = {
   postOrder,
   getOrders,
+  getOrdersDate,
   getOrdersOpen,
   getOrdersBuyed,
   getOrder,

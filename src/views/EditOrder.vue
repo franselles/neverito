@@ -1,25 +1,32 @@
 <template>
-  <h4>EDITAR LA LISTA PARA COMPRAR (edit order)</h4>
-  <br />
-  <button @click="onBack">REGRESAR</button>
-  <br />
-  <br />
-  <form @submit.prevent="onSubmit">
-    <div>
-      <label for="model">Modelo</label>
-      <input v-model="currentOrder.model" type="text" />
-    </div>
-    <div>
-      <label for="quantiy">Cantidad</label>
-      <input v-model="currentOrder.quantity" type="number" />
-    </div>
-    <br />
-    <br />
-    <input type="submit" value="CAMBIAR" />
-  </form>
-  <br />
-  <br />
-  <button @click="onDelete">BORRAR</button>
+  <div class="p-2">
+    <h4>EDITAR LA LISTA PARA COMPRAR</h4>
+  </div>
+  <div class="p-2">
+    <button class="btn btn-info" @click="onBack">REGRESAR</button>
+  </div>
+  <div class="p-2">
+    <form @submit.prevent="onSubmit">
+      <div>
+        <label class="form-label" for="model">Modelo</label>
+        <input v-model="currentOrder.model" type="text" class="form-control" />
+      </div>
+      <div>
+        <label class="form-label" for="quantiy">Cantidad</label>
+        <input
+          v-model="currentOrder.quantity"
+          type="number"
+          class="form-control"
+        />
+      </div>
+      <div>
+        <input class="btn btn-primary" type="submit" value="CAMBIAR" />
+      </div>
+    </form>
+  </div>
+  <div class="p-2">
+    <button class="btn btn-danger" @click="onDelete">BORRAR</button>
+  </div>
 </template>
 
 <script>

@@ -1,15 +1,19 @@
 <template>
-  <h3>BIENVENIDO A NEVERITO</h3>
-  0.1.9
-  <form @submit.prevent="onSubmit">
-    <div>
-      <label for="pin">PIN</label>
-      <input v-model="pin" type="text" maxlength="4" />
-    </div>
-    <div>
-      <input type="submit" />
-    </div>
-  </form>
+  <div class="p-2">
+    <h3>BIENVENIDO A NEVERITO</h3>
+  </div>
+  <div class="p-2">0.1.10</div>
+  <div class="p-2">
+    <form @submit.prevent="onSubmit">
+      <div>
+        <label class="form-label" for="pin">PIN</label>
+        <input v-model="pin" type="text" maxlength="4" class="form-control" />
+      </div>
+      <div class="p-2">
+        <input type="submit" class="btn btn-primary" />
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>

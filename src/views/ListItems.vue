@@ -1,32 +1,54 @@
 <template>
-  <h4>LISTA DE ITEMS DISPONIBLE PARA COMPRAR (list items)</h4>
-  <br />
-  <button @click="onBack">REGRESAR</button>
-  <br />
-  <br />
-  <input
-    v-model="textSearch"
-    type="text"
-    placeholder="Busca elemento"
-    autocomplete="off"
-  />
-  <br />
-  <br />
-  <div v-for="(item, index) in itemList" :key="index" :value="item">
-    <input v-model="selected" :value="item" type="radio" />
-    <label>{{ item.name }}</label>
+  <div class="p-2">
+    <h4>LISTA DE ITEMS DISPONIBLE PARA COMPRAR</h4>
   </div>
-  <br />
-  <br />
-  <button @click="onDelete">BORRAR</button>
-  <br />
-  <br />
-  <label>NUEVO ELEMENTO</label>
-  <input v-model="newItemName" type="text" />
-  <br />
-  <br />
-  <br />
-  <button @click="onAccept">AÑADIR ELEMENTO</button>
+
+  <div class="p-2">
+    <button class="btn btn-info" @click="onBack">REGRESAR</button>
+  </div>
+
+  <div class="p-2">
+    <input
+      v-model="textSearch"
+      class="form-control"
+      type="text"
+      placeholder="Busca elemento"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class="p-2">
+    <div
+      v-for="(item, index) in itemList"
+      :key="index"
+      :value="item"
+      class="form-check"
+    >
+      <input
+        :id="item._id"
+        v-model="selected"
+        class="form-check-input"
+        type="radio"
+        name="flexRadioDefault"
+        :value="item"
+      />
+      <label class="form-check-label" :for="item._id">
+        {{ item.name }}
+      </label>
+    </div>
+  </div>
+
+  <div class="p-2">
+    <label class="label-control">NUEVO ELEMENTO</label>
+    <input v-model="newItemName" class="form-control" type="text" />
+  </div>
+  <div
+    class="p-2 d-flex justify-content-between"
+    role="group"
+    aria-label="Basic mixed styles example"
+  >
+    <button class="btn btn-success" @click="onAccept">AÑADIR ELEMENTO</button>
+  </div>
 </template>
 
 <script>
@@ -75,12 +97,12 @@ export default {
       newItemName.value = '';
     };
 
-    const onDelete = async function () {
+    /*     const onDelete = async function () {
       if (selected.value._id != null) {
         await item.deleteItem(selected.value._id);
       }
       getItems();
-    };
+    }; */
 
     const onBack = async function () {
       router.push({ name: 'AddItemOrder' });
@@ -94,7 +116,6 @@ export default {
       filterOptions,
       onAccept,
       onBack,
-      onDelete,
       itemList,
       selected,
       textSearch,

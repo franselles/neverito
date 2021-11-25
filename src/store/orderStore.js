@@ -6,6 +6,7 @@ export const orderStore = defineStore('orderStore', {
   state: () => {
     return {
       orders: [],
+      dates: [],
       id: '',
       currentOrder: {},
     };
@@ -33,6 +34,20 @@ export const orderStore = defineStore('orderStore', {
         });
 
         this.orders = data;
+
+        return;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async getOrderDate() {
+      try {
+        const { data } = await axios({
+          url: urlServer + `orders/date`,
+          method: 'GET',
+        });
+
+        this.dates = data;
 
         return;
       } catch (error) {

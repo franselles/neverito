@@ -1,44 +1,70 @@
 <template>
-  <h4>AÑADIR ITEM A LA LISTA PARA COMPRAR (add item order)</h4>
-  <br />
-  <button @click="onBack">REGRESAR</button>
-  <br />
-  <br />
-  <div>
+  <div class="p-2">
+    <h4>AÑADIR ITEM A LA LISTA PARA COMPRAR</h4>
+  </div>
+  <div class="p-2">
+    <button class="btn btn-info" @click="onBack">REGRESAR</button>
+  </div>
+
+  <div class="p-2">
     <input
       v-model="textSearch"
       type="text"
       placeholder="Busca elemento"
       autocomplete="off"
+      class="form-control"
     />
-    <br />
-    <br />
+  </div>
+
+  <div class="p-2">
     <div v-for="(item, index) in options" :key="index" :value="item">
-      <input v-model="selected" :value="item" type="radio" />
-      <label>{{ item.name }}</label>
+      <div class="form-check">
+        <input
+          :id="item._id"
+          v-model="selected"
+          :value="item"
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+        />
+        <label class="form-check-label" :for="item._id">
+          {{ item.name }}
+        </label>
+      </div>
+
       <div v-if="selected._id == item._id">
-        <br />
         <div>
           <label for="model">Modelo</label>
-          <input v-model="newItem.model" type="text" />
+          <input v-model="newItem.model" type="text" class="form-control" />
         </div>
         <div>
           <label for="quantiy">Cantidad</label>
-          <input v-model="newItem.quantity" type="number" />
+          <input
+            v-model="newItem.quantity"
+            type="number"
+            class="form-control"
+          />
         </div>
-        <br />
       </div>
     </div>
   </div>
-  <br />
-  <br />
-  <div>
-    <input type="button" value="AÑADIR A LA LISTA" @click="onSubmit" />
-  </div>
-  <br />
-  <br />
-  <div>
-    <input type="button" value="CREAR NUEVO ELEMENTO" @click="createItem" />
+  <div
+    class="p-2 d-flex justify-content-between"
+    role="group"
+    aria-label="Basic mixed styles example"
+  >
+    <input
+      class="btn btn-success"
+      type="button"
+      value="AÑADIR A LA LISTA"
+      @click="onSubmit"
+    />
+    <input
+      class="btn btn-info"
+      type="button"
+      value="CREAR NUEVO ELEMENTO"
+      @click="createItem"
+    />
   </div>
 </template>
 
