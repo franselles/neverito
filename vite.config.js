@@ -8,6 +8,7 @@ export default defineConfig({
     vue(),
     VitePWA({
       includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],
+      strategies: 'injectManifest',
       manifest: {
         name: 'Neverito',
         short_name: 'Neverito',
