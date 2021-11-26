@@ -56,13 +56,13 @@
     <input
       class="btn btn-success"
       type="button"
-      value="AÑADIR PRODUCTO A LA LISTA DE COMPRA"
+      value="AÑADIR"
       @click="onSubmit"
     />
     <input
       class="btn btn-primary"
       type="button"
-      value="CREAR NUEVO PRODUCTO"
+      value="CREAR"
       @click="createItem"
     />
   </div>
