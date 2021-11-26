@@ -19,13 +19,15 @@
           class="form-control"
         />
       </div>
-      <div>
-        <input class="btn btn-primary" type="submit" value="CAMBIAR" />
+      <div
+        class="p-2 d-flex justify-content-between"
+        role="group"
+        aria-label="Basic mixed styles example"
+      >
+        <input class="btn btn-success" type="submit" value="CAMBIAR" />
+        <button class="btn btn-danger" @click="onDelete">BORRAR</button>
       </div>
     </form>
-  </div>
-  <div class="p-2">
-    <button class="btn btn-danger" @click="onDelete">BORRAR</button>
   </div>
 </template>
 
