@@ -18,28 +18,22 @@
           align-items-center
         "
       >
-        <input
-          v-model="order.buyed"
-          class="btn-check"
-          type="checkbox"
-          :disabled="active"
-        />
+        <div class="form-check form-switch">
+          <input
+            id="order._id"
+            v-model="order.buyed"
+            class="form-check-input"
+            type="checkbox"
+            :disabled="active"
+          />
 
-        <input
-          :id="order._id"
-          v-model="order.buyed"
-          type="checkbox"
-          class="btn-check"
-          autocomplete="off"
-          :disabled="active"
-        />
-        <label class="btn btn-outline-primary" :for="order._id"
-          >{{ order.itemId.name }} - {{ order.model }} -
-          {{ order.quantity }}</label
-        >
-
+          <label class="form-check-label" :for="order._id">
+            - {{ order.itemId.name }} {{ order.model }} =
+            {{ order.quantity }}</label
+          >
+        </div>
         <span class="badge badge-primary badge-pill"
-          ><button class="btn btn-info" @click="onEdit(order._id)">
+          ><button class="btn btn-primary" @click="onEdit(order._id)">
             EDITAR
           </button></span
         >
@@ -82,10 +76,12 @@ export default {
       if (active.value) {
         active.value = false;
         textButton.value = 'COMPRAR';
+      } else {
+        await orders.putOrders();
+        await carga();
+        active.value = true;
+        textButton.value = 'DESBLOQUEA COMPRA';
       }
-
-      await orders.putOrders();
-      await carga();
     };
 
     const onEdit = function (id) {

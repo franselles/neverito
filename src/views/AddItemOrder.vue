@@ -1,6 +1,6 @@
 <template>
   <div class="p-2">
-    <h4>AÑADIR ITEM A LA LISTA PARA COMPRAR</h4>
+    <h4>AÑADIR PRODUCTO A LA LISTA PARA COMPRAR</h4>
   </div>
   <div class="p-2">
     <button class="btn btn-info" @click="onBack">REGRESAR</button>
@@ -56,13 +56,13 @@
     <input
       class="btn btn-success"
       type="button"
-      value="AÑADIR A LA LISTA"
+      value="AÑADIR PRODUCTO A LA LISTA DE COMPRA"
       @click="onSubmit"
     />
     <input
-      class="btn btn-info"
+      class="btn btn-primary"
       type="button"
-      value="CREAR NUEVO ELEMENTO"
+      value="CREAR NUEVO PRODUCTO"
       @click="createItem"
     />
   </div>

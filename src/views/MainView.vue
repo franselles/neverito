@@ -1,24 +1,26 @@
 <template>
-  <ul class="nav">
-    <li class="nav-item">
-      <router-link :to="{ name: 'CurrentOrder' }" class="nav-link"
-        >Compra Actual</router-link
-      >
-    </li>
-    <li class="nav-item">
-      <router-link :to="{ name: 'ListItems' }" class="nav-link"
-        >Nuevos Elementos</router-link
-      >
-    </li>
-    <li class="nav-item">
-      <router-link :to="{ name: 'ViewBuyed' }" class="nav-link"
-        >Compras Realizadas</router-link
-      >
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" @click="onExit">Salir</a>
-    </li>
-  </ul>
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+    <ul class="nav">
+      <li class="nav-item">
+        <router-link :to="{ name: 'CurrentOrder' }" class="nav-link"
+          >COMPRA</router-link
+        >
+      </li>
+      <li class="nav-item">
+        <router-link :to="{ name: 'ListItems' }" class="nav-link"
+          >CREAR NUEVO</router-link
+        >
+      </li>
+      <li class="nav-item">
+        <router-link :to="{ name: 'ViewBuyed' }" class="nav-link"
+          >COMPRADA</router-link
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" @click="onExit">SALIR</a>
+      </li>
+    </ul>
+  </nav>
   <router-view />
 </template>
 

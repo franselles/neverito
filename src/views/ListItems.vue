@@ -1,6 +1,6 @@
 <template>
   <div class="p-2">
-    <h4>LISTA DE ITEMS DISPONIBLE PARA COMPRAR</h4>
+    <h4>BASE DE PRODUCTOS PARA COMPRAR</h4>
   </div>
 
   <div class="p-2">
@@ -39,7 +39,7 @@
   </div>
 
   <div class="p-2">
-    <label class="label-control">NUEVO ELEMENTO</label>
+    <label class="label-control">NUEVO PRODUCTO</label>
     <input v-model="newItemName" class="form-control" type="text" />
   </div>
   <div
@@ -47,7 +47,9 @@
     role="group"
     aria-label="Basic mixed styles example"
   >
-    <button class="btn btn-success" @click="onAccept">AÑADIR ELEMENTO</button>
+    <button class="btn btn-success" @click="onAccept">
+      AÑADIR NUEVO PRODUCTO
+    </button>
   </div>
 </template>
 
@@ -105,7 +107,7 @@ export default {
     }; */
 
     const onBack = async function () {
-      router.push({ name: 'AddItemOrder' });
+      router.push({ name: 'CurrentOrder' });
     };
 
     watch(textSearch, () => {
