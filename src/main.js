@@ -15,6 +15,7 @@ const updateSW = registerSW({
         r.update();
       }, intervalMS);
   },
+  registerType: 'autoUpdate',
 });
 
 import 'bootstrap/dist/css/bootstrap.min.css';
