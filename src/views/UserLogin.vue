@@ -2,17 +2,24 @@
   <div class="p-2">
     <h3>BIENVENIDO A NEVERITO</h3>
   </div>
-  <div class="p-2">v.0.1.23</div>
   <div class="p-2">
     <form @submit.prevent="onSubmit">
-      <div>
-        <label class="form-label" for="pin">PIN</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text">PIN</span>
         <input v-model="pin" type="text" maxlength="4" class="form-control" />
       </div>
       <div class="p-2">
-        <input type="submit" class="btn btn-primary" />
+        <input type="submit" class="btn btn-primary" value="ENTRAR" />
       </div>
     </form>
+  </div>
+  <div class="p-2 alert alert-warning" role="alert">
+    Made with <span class="fw-bold">Vue + Vite + </span>❤️ by
+    <span class="text-info">FRaN</span>. 2021
+    <span class="text-info">v.0.1.24</span>
+  </div>
+  <div class="text-center">
+    <img src="pwa-192.png" class="rounded" alt="neverito" />
   </div>
 </template>
 
