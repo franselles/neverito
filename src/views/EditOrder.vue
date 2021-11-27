@@ -10,7 +10,9 @@
       <div class="input-group mb-3">
         <span class="input-group-text">MODELO</span>
         <input v-model="currentOrder.model" type="text" class="form-control" />
+      </div>
 
+      <div class="input-group mb-3">
         <span class="input-group-text">CANTIDAD</span>
         <input
           v-model="currentOrder.quantity"
