@@ -18,23 +18,19 @@
         <a href="#" @click="setDate(order._id)">{{ order._id }}</a>
       </li>
     </ul>
-    <div class="p-2">
-      <input
-        v-model="datePurchased"
-        class="form-control"
-        type="date"
-        @change="carga"
-      />
-    </div>
-    <ul class="list-group">
+    <ol class="list-group list-group-numbered">
       <li
         v-for="(order, index) in ordersBuyed"
         :key="index"
-        class="list-group-item"
+        class="list-group-item d-flex justify-content-between align-items-start"
       >
-        {{ order.itemId.name }} - {{ order.model }} - {{ order.quantity }}
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">{{ order.itemId.name }}</div>
+          {{ order.model }}
+        </div>
+        <span class="badge bg-primary rounded-pill">{{ order.quantity }}</span>
       </li>
-    </ul>
+    </ol>
   </div>
 </template>
 <script>
@@ -51,25 +47,26 @@ export default {
     const ordersDate = ref([]);
     let datePurchased = ref('');
 
-    function newToday() {
-      const todayDate = new Date();
-      return todayDate.toISOString().split('T')[0];
-    }
-
-    datePurchased.value = newToday();
-
-    const carga = async function () {
-      await orders.getOrderBuyed(datePurchased.value);
-      ordersBuyed.value = orders.orders;
+    const load = async function () {
       await orders.getOrderDate();
       ordersDate.value = orders.dates;
+      if (ordersDate.value[0] != null) {
+        datePurchased.value = ordersDate.value[0]._id;
+        await orders.getOrderBuyed(datePurchased.value);
+        ordersBuyed.value = orders.orders;
+      }
     };
 
-    carga();
+    load();
+
+    const updateView = async function () {
+      await orders.getOrderBuyed(datePurchased.value);
+      ordersBuyed.value = orders.orders;
+    };
 
     const setDate = function (params) {
       datePurchased.value = params;
-      carga();
+      updateView();
     };
 
     const onBack = function () {
@@ -78,7 +75,6 @@ export default {
 
     return {
       onBack,
-      carga,
       setDate,
       ordersBuyed,
       datePurchased,

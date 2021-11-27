@@ -47,7 +47,7 @@ async function getOrdersDate(req, res) {
       { $group: { _id: '$datePurchase' } },
     ])
       .sort({ _id: -1 })
-      .limit(10)
+      .limit(5)
       .exec();
     res.status(200).send(data);
   } catch (error) {
