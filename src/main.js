@@ -15,7 +15,13 @@ const updateSW = registerSW({
         r.update();
       }, intervalMS);
   },
-  registerType: 'autoUpdate',
+  onNeedRefresh() {
+    alert('Cierra y vuelve abrir la aplicación');
+  },
+  workbox: {
+    cleanupOutdatedCaches: false,
+    sourcemap: true,
+  },
 });
 
 import 'bootstrap/dist/css/bootstrap.min.css';
