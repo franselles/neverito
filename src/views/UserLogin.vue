@@ -19,7 +19,7 @@
     <span class="text-info">v.0.1.24</span>
   </div>
   <div class="text-center">
-    <img src="pwa-192.png" class="rounded" alt="neverito" />
+    <img src="/pwa-192.png" class="rounded" alt="neverito" />
   </div>
 </template>
 
