@@ -7,12 +7,11 @@
   </div>
   <div class="p-2">
     <form @submit.prevent="onSubmit">
-      <div>
-        <label class="form-label" for="model">Modelo</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text">MODELO</span>
         <input v-model="currentOrder.model" type="text" class="form-control" />
-      </div>
-      <div>
-        <label class="form-label" for="quantiy">Cantidad</label>
+
+        <span class="input-group-text">CANTIDAD</span>
         <input
           v-model="currentOrder.quantity"
           type="number"
@@ -20,7 +19,7 @@
         />
       </div>
       <div
-        class="p-2 d-flex justify-content-between"
+        class="d-flex justify-content-between"
         role="group"
         aria-label="Basic mixed styles example"
       >

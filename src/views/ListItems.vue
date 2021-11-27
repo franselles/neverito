@@ -38,8 +38,8 @@
     </div>
   </div>
 
-  <div class="p-2">
-    <label class="label-control">NUEVO PRODUCTO</label>
+  <div class="p-2 input-group mb-3">
+    <span class="input-group-text">NUEVO PRODUCTO</span>
     <input v-model="newItemName" class="form-control" type="text" />
   </div>
   <div

@@ -33,12 +33,11 @@
       </div>
 
       <div v-if="selected._id == item._id">
-        <div>
-          <label for="model">Modelo</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">Modelo</span>
           <input v-model="newItem.model" type="text" class="form-control" />
-        </div>
-        <div>
-          <label for="quantiy">Cantidad</label>
+
+          <span class="input-group-text">Cantidad</span>
           <input
             v-model="newItem.quantity"
             type="number"
