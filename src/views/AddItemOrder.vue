@@ -36,7 +36,8 @@
         <div class="input-group mb-3">
           <span class="input-group-text">Modelo</span>
           <input v-model="newItem.model" type="text" class="form-control" />
-
+        </div>
+        <div class="input-group mb-3">
           <span class="input-group-text">Cantidad</span>
           <input
             v-model="newItem.quantity"
