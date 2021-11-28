@@ -12,6 +12,20 @@ export const orderStore = defineStore('orderStore', {
     };
   },
   actions: {
+    orderOrders() {
+      this.orders.sort((a, b) => {
+        let fa = a.itemId.name;
+        let fb = b.itemId.name;
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+    },
     async getOrderOpen() {
       try {
         const { data } = await axios({
@@ -20,6 +34,8 @@ export const orderStore = defineStore('orderStore', {
         });
 
         this.orders = data;
+
+        this.orderOrders();
 
         return;
       } catch (error) {
@@ -34,6 +50,8 @@ export const orderStore = defineStore('orderStore', {
         });
 
         this.orders = data;
+
+        this.orderOrders();
 
         return;
       } catch (error) {

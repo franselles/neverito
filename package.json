@@ -1,6 +1,6 @@
 {
   "name": "neverito",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
