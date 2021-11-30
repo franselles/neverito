@@ -9,7 +9,12 @@
     <form @submit.prevent="onSubmit">
       <div class="input-group mb-3">
         <span class="input-group-text">MODELO</span>
-        <input v-model="currentOrder.model" type="text" class="form-control" />
+        <input
+          v-model="currentOrder.model"
+          type="text"
+          placeholder="modelo o tipo del producto"
+          class="form-control"
+        />
       </div>
 
       <div class="input-group mb-3">

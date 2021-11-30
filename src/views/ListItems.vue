@@ -12,7 +12,7 @@
       v-model="textSearch"
       class="form-control"
       type="text"
-      placeholder="Busca elemento"
+      placeholder="busca elemento"
       autocomplete="off"
     />
   </div>
@@ -40,7 +40,12 @@
 
   <div class="p-2 input-group mb-3">
     <span class="input-group-text">NUEVO PRODUCTO</span>
-    <input v-model="newItemName" class="form-control" type="text" />
+    <input
+      v-model="newItemName"
+      class="form-control"
+      type="text"
+      placeholder="producto nuevo a añadir"
+    />
   </div>
   <div
     class="p-2 d-flex justify-content-between"

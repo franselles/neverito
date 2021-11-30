@@ -10,7 +10,7 @@
     <input
       v-model="textSearch"
       type="text"
-      placeholder="Busca elemento"
+      placeholder="busca elemento"
       autocomplete="off"
       class="form-control"
     />
@@ -35,7 +35,12 @@
       <div v-if="selected._id == item._id">
         <div class="input-group mb-3">
           <span class="input-group-text">Modelo</span>
-          <input v-model="newItem.model" type="text" class="form-control" />
+          <input
+            v-model="newItem.model"
+            type="text"
+            placeholder="modelo o tipo del producto"
+            class="form-control"
+          />
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text">Cantidad</span>
