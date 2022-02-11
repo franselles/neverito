@@ -10,8 +10,8 @@
       <div class="input-group mb-3">
         <span class="input-group-text">Elemento</span>
         <select v-model="currentOrder.itemId._id" class="form-select">
-          <option v-for="item in items" :value="item._id">
-            {{ item.name }}
+          <option v-for="option in items" :key="option._id" :value="option._id">
+            {{ option.name }}
           </option>
         </select>
       </div>
@@ -46,53 +46,65 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { orderStore } from '../store/orderStore';
 import { itemStore } from '../store/itemStore';
 
-const router = useRouter();
-const order = orderStore();
-const item = itemStore();
+export default {
+  setup() {
+    const router = useRouter();
+    const order = orderStore();
+    const item = itemStore();
 
-const currentOrder = ref({
-  familyId: Object,
-  itemId: Object,
-  userId: Object,
-  model: '',
-  quantity: 0,
-  buyed: false,
-  dateOrder: '',
-  datePurchase: '',
-});
-const items = ref([]);
+    const currentOrder = ref({
+      familyId: Object,
+      itemId: Object,
+      userId: Object,
+      model: '',
+      quantity: 0,
+      buyed: false,
+      dateOrder: '',
+      datePurchase: '',
+    });
+    const items = ref([]);
 
-const find = async function () {
-  await item.getItems();
-  items.value = item.items;
+    const find = async function () {
+      await item.getItems();
+      items.value = item.items;
 
-  await order.findOrder();
-  currentOrder.value = order.currentOrder;
-};
+      await order.findOrder();
+      currentOrder.value = order.currentOrder;
+    };
 
-find();
+    find();
 
-const onSubmit = async function () {
-  order.currentOrder = currentOrder.value;
-  await order.putOrders();
-  router.push({ name: 'CurrentOrder' });
-};
+    const onSubmit = async function () {
+      order.currentOrder = currentOrder.value;
+      await order.putOrders();
+      router.push({ name: 'CurrentOrder' });
+    };
 
-const onDelete = async function () {
-  if (currentOrder.value._id != null) {
-    await order.deleteOrder(currentOrder.value);
-  }
-  router.push({ name: 'CurrentOrder' });
-};
+    const onDelete = async function () {
+      if (currentOrder.value._id != null) {
+        await order.deleteOrder(currentOrder.value);
+      }
+      router.push({ name: 'CurrentOrder' });
+    };
 
-const onBack = async function () {
-  router.push({ name: 'CurrentOrder' });
+    const onBack = async function () {
+      router.push({ name: 'CurrentOrder' });
+    };
+
+    return {
+      onSubmit,
+      onDelete,
+      onBack,
+      currentOrder,
+      items,
+    };
+  },
 };
 </script>
 
