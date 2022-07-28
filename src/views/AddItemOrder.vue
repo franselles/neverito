@@ -50,6 +50,15 @@
             class="form-control"
           />
         </div>
+
+        <div class="input-group mb-3">
+          <input
+            class="btn btn-success"
+            type="button"
+            value="AÑADIR"
+            @click="onSubmit"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -58,12 +67,12 @@
     role="group"
     aria-label="Basic mixed styles example"
   >
-    <input
+    <!-- <input
       class="btn btn-success"
       type="button"
       value="AÑADIR"
       @click="onSubmit"
-    />
+    /> -->
     <input
       class="btn btn-primary"
       type="button"
