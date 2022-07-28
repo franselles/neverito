@@ -21,7 +21,7 @@
   <div class="p-2 alert alert-warning" role="alert">
     Made with <span class="fw-bold">Vue + Vite + </span>❤️ by
     <span class="text-info">FRaN</span>. 2021
-    <span class="text-info">v.0.1.30</span>
+    <span class="text-info">v.0.1.31</span>
   </div>
   <div class="text-center">
     <img src="/pwa-192.png" class="rounded" alt="neverito" />
