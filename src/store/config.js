@@ -1,4 +1,6 @@
-// const port = 3001;
-// export const urlServer = `http://localhost:${port}/api/`;
+//const port = 3001;
+//export const urlServer = `http://localhost:${port}/api/`;
 
-export const urlServer = `/api/`;
+console.log(import.meta.env.VITE_API);
+
+export const urlServer = import.meta.env.VITE_API;
